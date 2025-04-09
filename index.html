@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Funqtion</title>
+  <style>
+    html, body {
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.4;
+      transition: opacity 1s ease-in-out;
+    }
+    .hide-video {
+      opacity: 0 !important;
+    }
+    .toggle-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 2px solid #f68712;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 8px;
+      z-index: 2;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .toggle-button:hover {
+      background: rgba(246, 135, 18, 0.8);
+      transform: scale(1.05);
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 1;
+      width: 100%;
+      max-width: 1000px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      margin-bottom: 10px;
+    }
+    .logo img {
+      max-width: 20vw;
+      width: 100%;
+      height: auto;
+    }
+    h1 {
+      font-size: 6vw;
+      text-transform: uppercase;
+      margin: 0.2em 0 0;
+      background: linear-gradient(90deg, #f68712, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    h2 {
+      font-size: 3vw;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffffff;
+      margin: 10px 0 30px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px 20px;
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+    nav a {
+      color: #ffffff;
+      font-size: 1.5vw;
+      min-width: max-content;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 2px solid #f68712;
+      padding: 10px 15px;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.05);
+      transition: background 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+      background-color: #f68712;
+      color: #000;
+      transform: scale(1.05);
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .socials a {
+      display: inline-block;
+    }
+    .socials img {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Mobiele indeling */
+    @media (max-width: 600px) {
+      .logo img {
+        max-width: 40vw;
+      }
+      body {
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+      }
+      header {
+        padding-top: 80px;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      nav a {
+        font-size: 16px;
+        width: 80%;
+      }
+      .toggle-button {
+        font-size: 16px;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Toggle-knoppen -->
+  <button class="toggle-button" onclick="toggleVideo()">Toggle video</button>
+  <button class="toggle-button" style="left: 20px; right: auto; top: 20px;" onclick="toggleAudio()">Audio aan/uit</button>
+
+  <!-- Achtergrond video placeholder -->
+  <video class="bg-video" id="bgVideo" autoplay loop muted>
+    <source src="videos/IndexBG.mp4" type="video/mp4">
+    Je browser ondersteunt dit videoformaat niet.
+  </video>
+
+  <header>
+    <div class="logo" style="margin-bottom: 2px;">
+      <img src="images/logo.svg" alt="Logo">
+    </div>
+
+    <h1>Team Funqtion</h1>
+    <h2>Allround Dj’s</h2>
+
+    <nav>
+      <a href="pages/over.html">Over ons</a>
+      <a href="pages/feesten.html">Onze laatste feesten</a>
+      <a href="pages/boeken.html">Boeken</a>
+      <a href="pages/bieden.html">Wat wij bieden</a>
+      <a href="pages/sets.html">Onze sets</a>
+      <a href="pages/tip.html">De weekly muziek aanrader</a>
+    </nav>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/funqtion1/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/share/1C3HbUUbbw/?mibextid=wwXIfr" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+      </a>
+      <a href="mailto:Booking@funqtion.nl">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email">
+      </a>
+    </div>
+  </header>
+
+  <script>
+    function toggleVideo() {
+      const video = document.getElementById('bgVideo');
+      video.classList.toggle('hide-video');
+    }
+    function toggleAudio() {
+      const video = document.getElementById('bgVideo');
+      video.muted = !video.muted;
+    }
+</script>
+  <div style="position: absolute; bottom: 5px; right: 10px; font-size: 12px; color: #aaa; opacity: 0.7;">
+    &copy; Feel the musiq
+  </div>
+</body>
+</html>
